@@ -13082,6 +13082,14 @@ line-height: 1.5em;
     align-items: center;
     display: flex;
     overflow: hidden;
+    transition:all .9s ease;
+}
+.circle-button:hover {
+  -webkit-transform:scale(1.25);
+  -moz-transform:scale(1.25);
+  -ms-transform:scale(1.25);
+  -o-transform:scale(1.25);
+  transform:scale(1.25);
 }
 .icon-wrapper {
   position: relative;
