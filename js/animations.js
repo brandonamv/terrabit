@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 const elem = document.getElementById('banner');
-const elemHeight = elem.offsetHeight+10
+const elemHeight = elem.offsetHeight+elem.offsetHeight*0.01;
 
 console.log(elemHeight);
 const secondElem = document.getElementById('fondo');
@@ -129,8 +129,6 @@ cloud12.position.x=-5;
 scene.add( cloud12 );
 
 camera.position.z = 5;
-
-console.log(window);
 
 let aumentY=0;
 let actualScroll=0;
