@@ -1,5 +1,12 @@
 import * as THREE from 'three';
 
+const elem = document.getElementById('banner');
+const elemHeight = elem.offsetHeight
+
+console.log(elemHeight);
+const secondElem = document.getElementById('fondo');
+secondElem.style.height = elemHeight+'px';
+
 const scene = new THREE.Scene(new THREE.AmbientLight( 0x111122, 3 ) );
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
