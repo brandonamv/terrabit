@@ -28,7 +28,7 @@ document.addEventListener('scroll',()=>{
     } else if(window.scrollY!==0){
         $navLink.forEach(element => {
             $imgNav.style.width='min-content'
-            $imgNav.src="/img/Terrabbit-Logo-Horizontal 1.svg"
+            $imgNav.src="/img/Terrabbit-Logo-Horizontal1.svg"
             console.log('ahora aqui esta 3')
             element.style.color='#141B4D'
             element.style.fontWeight='bold'
