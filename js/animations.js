@@ -5,6 +5,8 @@ const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.inner
 
 let width=window.innerWidth;
 let height=window.innerHeight;
+let widthHalf = width / 2, heightHalf = height / 2;
+
 const renderer = new THREE.WebGLRenderer( { antialias: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( width, height );
@@ -16,13 +18,18 @@ renderer.setClearColor( 0x000000, 0 ); // the default
 
 document.getElementById("animation").appendChild( renderer.domElement );
 
-
+function ScreenToSpaceX(n) {
+    return ( n - widthHalf ) / widthHalf;
+}
+function ScreenToSpaceY(n) {
+    return - ( n - heightHalf ) / heightHalf;
+}
 
 const geometry = new THREE.PlaneGeometry( 7, 3);  
 const material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load( '/img/cloud.png'), transparent: true,  });
 const cloud = new THREE.Mesh( geometry, material );
 cloud.castShadow=true;
-cloud.position.y=1.5;
+cloud.position.y=ScreenToSpaceY(height*0.01);
 scene.add( cloud );
 
 const geometry2 = new THREE.PlaneGeometry( 5, 3);  
@@ -30,7 +37,7 @@ const material2 = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().l
 const cloud2 = new THREE.Mesh( geometry2, material2 );
 cloud2.castShadow=true;
 cloud2.position.y=-5;
-cloud2.position.x=-5;
+cloud2.position.x=ScreenToSpaceX(width*-2);
 scene.add( cloud2 );
 
 const geometry3 = new THREE.PlaneGeometry( 5, 3);  
@@ -120,6 +127,9 @@ console.log(window);
 
 let aumentY=0;
 let actualScroll=0;
+aumentY=actualScroll-window.scrollY;
+actualScroll=window.scrollY;
+camera.position.y+=aumentY/100;
 document.addEventListener('scroll',()=>{
     aumentY=actualScroll-window.scrollY;
     actualScroll=window.scrollY;
@@ -130,15 +140,15 @@ document.addEventListener('scroll',()=>{
 
 window.addEventListener('resize', () => {
     // update display width and height
-    width = window.innerWidth
-    height = window.innerHeight
+    width = window.innerWidth;
+    height = window.innerHeight;
     // update camera aspect
-    camera.aspect = width / height
-    camera.updateProjectionMatrix()
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
     // update renderer
-    renderer.setSize(width, height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    renderer.render(scene, camera)
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.render(scene, camera);
     
 
 });
