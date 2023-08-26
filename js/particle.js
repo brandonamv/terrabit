@@ -4,32 +4,72 @@ var init = function(){
       navigator.userAgent.toLowerCase().indexOf('mobile') >= 0;
     var isSmall = window.innerWidth < 1000;
     
-    var ps = new ParticleSlider({
+    var ps1 = new ParticleSlider({
+      sliderId:"particle-slider1",
+      ptlGap: isMobile || isSmall ? 3 : 0,
+      ptlSize: isMobile || isSmall ? 3 : 1,
+      width: 1e9,
+      height: 1e9
+    });
+    ps1.monochrome = true;
+    ps1.setColor("#1E22AA");
+    ps1.mouseForce=10;
+
+    var ps2 = new ParticleSlider({
       sliderId:"particle-slider2",
       ptlGap: isMobile || isSmall ? 3 : 0,
       ptlSize: isMobile || isSmall ? 3 : 1,
       width: 1e9,
       height: 1e9
     });
-    ps.mouseForce=10;
-    var gui = new dat.GUI();
-    gui.add(ps, 'ptlGap').min(0).max(5).step(1).onChange(function(){
-      ps.init(true);
+    ps2.monochrome = true;
+    ps2.setColor("#8d91a9");
+    ps2.mouseForce=10;
+
+    var ps3 = new ParticleSlider({
+      sliderId:"particle-slider3",
+      ptlGap: isMobile || isSmall ? 3 : 0,
+      ptlSize: isMobile || isSmall ? 3 : 1,
+      width: 1e9,
+      height: 1e9
     });
-    gui.add(ps, 'ptlSize').min(1).max(5).step(1).onChange(function(){
-      ps.init(true);
+    ps3.monochrome = true;
+    ps3.setColor("#8d91a9");
+    ps3.mouseForce=10;
+
+    document.getElementById('tab1').addEventListener('click', function(){
+      ps1.monochrome = true;
+      ps1.setColor("#1E22AA");
+      ps1.init(true);
+      ps2.monochrome = true;
+      ps2.setColor("#8d91a9");
+      ps2.init(true);
+      ps3.monochrome = true;
+      ps3.setColor("#8d91a9");
+      ps3.init(true);
     });
-    gui.add(ps, 'restless');
-    gui.addColor(ps, 'color').onChange(function(value){
-      ps.monochrome = true;
-      ps.setColor(value);
-        ps.init(true);
+    document.getElementById('tab2').addEventListener('click', function(){
+      ps2.monochrome = true;
+      ps2.setColor("#1E22AA");
+      ps2.init(true);
+      ps1.monochrome = true;
+      ps1.setColor("#8d91a9");
+      ps1.init(true);
+      ps3.monochrome = true;
+      ps3.setColor("#8d91a9");
+      ps3.init(true);
     });
-    
-    
-    (window.addEventListener
-     ? window.addEventListener('click', function(){ps.init(true)}, false)
-     : window.onclick = function(){ps.init(true)});
+    document.getElementById('tab3').addEventListener('click', function(){
+      ps3.monochrome = true;
+      ps3.setColor("#1E22AA");
+      ps3.init(true);
+      ps2.monochrome = true;
+      ps2.setColor("#8d91a9");
+      ps2.init(true);
+      ps1.monochrome = true;
+      ps1.setColor("#8d91a9");
+      ps1.init(true);
+    });
   }
   
   var initParticleSlider = function(){

@@ -2,7 +2,7 @@
 
 function ParticleSlider(a) {
     var b = this;
-    b.sliderId = "particle-slider2", b.color = "#fff", b.hoverColor = "#88f", b.width = 0, b.height = 20, b.ptlGap = 0, b.ptlSize = 1, b.slideDelay = 10, b.arrowPadding = 10, b.showArrowControls = !0, b.onNextSlide = null, b.onWidthChange = null, b.onHeightChange = null, b.onSizeChange = null, b.monochrome = !1, b.mouseForce = 1e4, b.restless = !0, b.imgs = [];
+    /* b.sliderId = "particle-slider2", */ b.color = "#fff", b.hoverColor = "#88f", b.width = 0, b.height = 20, b.ptlGap = 0, b.ptlSize = 1, b.slideDelay = 10, b.arrowPadding = 10, b.showArrowControls = !0, b.onNextSlide = null, b.onWidthChange = null, b.onHeightChange = null, b.onSizeChange = null, b.monochrome = !1, b.mouseForce = 1e4, b.restless = !0, b.imgs = [];
     if (a) {
         var c = ["color", "hoverColor", "width", "height", "ptlGap", "ptlSize", "slideDelay", "arrowPadding", "sliderId", "showArrowControls", "onNextSlide", "monochrome", "mouseForce", "restless", "imgs", "onSizeChange", "onWidthChange", "onHeightChange"];
         for (var d = 0, e = c.length; d < e; d++) a[c[d]] && (b[c[d]] = a[c[d]])

@@ -13207,7 +13207,7 @@ line-height: 1.5em;
 }
 
 .particle-slider {
-  height: 100%;
+  height: 40%;
   width: 100%;
   z-index: 2;
   margin: 0;
@@ -13227,4 +13227,22 @@ line-height: 1.5em;
       display: block;
     }
   }
+}
+
+/*------------------------------------------------*\ Sonar \*------------------------------------------------*/
+@keyframes sonar {
+  from {
+    box-shadow: 0 0 0 0 rgba(30, 34, 170, 1), 0 0 4px 2px rgba(0, 0, 0, .4);
+ }
+  to {
+    box-shadow: 0 0 0 10px rgba(30, 34, 170, 0), 0 0 4px 2px rgba(0, 0, 0, .4);
+ }
+}
+.sonar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #1e22aa;
+  border: 2px solid #16197f;
+  animation: sonar 800ms ease-out infinite;
 }

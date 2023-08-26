@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 const elem = document.getElementById('banner');
-const elemHeight = elem.offsetHeight+elem.offsetHeight*0.01;
+const elemHeight = elem.getBoundingClientRect().height;
 
 console.log(elemHeight);
 const secondElem = document.getElementById('fondo');
