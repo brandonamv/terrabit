@@ -32,6 +32,36 @@ function ScreenToSpaceY(n) {
     return - ( n - heightHalf ) / heightHalf;
 }
 
+const light = new THREE.PointLight( 0xffffff, 400 );
+light.position.set(-3.5,-6,2);
+scene.add( light );
+const light2 = new THREE.PointLight( 0x1E22AA, 400 );
+light2.position.set(0,-10,2);
+scene.add( light2 );
+const light3 = new THREE.PointLight( 0x1E22AA, 400 );
+light3.position.set(0,-20,2);
+scene.add( light3 );
+const light4 = new THREE.PointLight( 0x1E22AA, 400 );
+light4.position.set(0,-30,2);
+scene.add( light4 );
+const light5 = new THREE.PointLight( 0x1E22AA, 400 );
+light5.position.set(0,-40,2);
+scene.add( light5 );
+const light6 = new THREE.PointLight( 0x1E22AA, 400 );
+light6.position.set(0,-50,2);
+scene.add( light6 );
+const light7 = new THREE.PointLight( 0x1E22AA, 400 );
+light7.position.set(0,-60,2);
+scene.add( light7 );
+
+const b_geometry = new THREE.PlaneGeometry( 6.5, 4);  
+const b_material = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load( '/img/rabbit2.svg'), transparent: true,  });
+const bunny = new THREE.Mesh( b_geometry, b_material );
+bunny.position.y=-5.9;
+bunny.position.x=-3.5;
+bunny.visible=true;
+scene.add( bunny );
+
 const geometry = new THREE.PlaneGeometry( 7, 3);  
 const material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load( '/img/cloud.png'), transparent: true,  });
 const cloud = new THREE.Mesh( geometry, material );
@@ -130,16 +160,28 @@ scene.add( cloud12 );
 
 camera.position.z = 5;
 
-let aumentY=0;
-let actualScroll=0;
-aumentY=actualScroll-window.scrollY;
-actualScroll=window.scrollY;
-camera.position.y+=aumentY/100;
+camera.position.y=-window.scrollY/100;
+if (camera.position.y<=-4) {
+    if (camera.position.y>-7) {
+        bunny.position.x=-camera.position.y-3.5*2;
+        bunny.scale.setScalar(-camera.position.y/4.5);
+    }else{
+        bunny.position.x=-7-3.5*2;
+        bunny.scale.setScalar(-7/4.5);
+    }
+    bunny.position.y=camera.position.y-2;
+}
 document.addEventListener('scroll',()=>{
-    aumentY=actualScroll-window.scrollY;
-    actualScroll=window.scrollY;
-    camera.position.y+=aumentY/100;
-
+    camera.position.y=-window.scrollY/100;
+    console.log(camera.position);
+    if (camera.position.y<-4) {
+        if (camera.position.y>-7) {
+            bunny.position.x=-camera.position.y-3.5*2;
+            bunny.scale.setScalar(-camera.position.y/4.5);
+        }
+        bunny.position.y=camera.position.y-1;
+    }
+    camera.position.y<-64.40?bunny.visible=false:bunny.visible=true;
 })
 
 

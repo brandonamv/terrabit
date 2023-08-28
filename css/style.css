@@ -77,8 +77,19 @@ dfn {
 h1 {
   margin: .67em 0;
   font-size: 2em;
+  animation: myAnim 1s cubic-bezier(0.32, 0, 0.67, 0) 0s 1 normal forwards;
 }
+@keyframes myAnim {
+	0% {
+		transform: scaleY(0.0);
+		transform-origin: 0% 100%;
+	}
 
+	100% {
+		transform: scaleY(1);
+		transform-origin: 0% 100%;
+	}
+}
 mark {
   color: #000;
   background: #ff0;
@@ -5416,6 +5427,7 @@ line-height: 1.5em;
   font-size: 2.5rem;
   font-weight: 600;
   line-height: 1.4em;
+  
 }
 
 .blog-post-rich-text h3 {
