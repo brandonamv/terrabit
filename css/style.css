@@ -11565,7 +11565,7 @@ line-height: 1.5em;
 }
 .nojombre {
   position: relative;
-  bottom: 0;
+  bottom: -5rem;
 }
 
 .relative-container{
