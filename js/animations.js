@@ -32,14 +32,14 @@ function ScreenToSpaceY(n) {
     return - ( n - heightHalf ) / heightHalf;
 }
 
-const light = new THREE.PointLight( 0xffffff, 100 );
+const light = new THREE.PointLight( 0xffffff, 40 );
 light.position.set(-3.5,-6,2);
 scene.add( light );
 const light2 = new THREE.PointLight( 0x1E22AA, 400 );
-light2.position.set(-1.5,-7,2);
+light2.position.set(-1.5,-6.1,2);
 scene.add( light2 );
 const light3 = new THREE.PointLight( 0x1E22AA, 400 );
-light3.position.set(-1,-9,2);
+light3.position.set(-1,-6.5,2);
 scene.add( light3 );
 
 const b_geometry = new THREE.PlaneGeometry( 6.5, 4);  
@@ -201,11 +201,11 @@ window.addEventListener('resize', () => {
 function animate() {
 	requestAnimationFrame( animate );
     camera.position.y=-window.scrollY/100;
-    let t=(-camera.position.y-4)/6;
+    let t=(-camera.position.y-4)/5;
     if (t<0)t=0;
     if (t>1)t=1;
     bunny.scale.setScalar((1-t)+t*1.5);
-    bunny.position.y=(1-t)*(-5.9)+t*-9;
+    bunny.position.y=(1-t)*(-5.9)+t*-6;
     bunny.position.x=(1-t)*(-3.5);
     console.log(bunny.position);
 	renderer.render( scene, camera );
