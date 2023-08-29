@@ -32,27 +32,15 @@ function ScreenToSpaceY(n) {
     return - ( n - heightHalf ) / heightHalf;
 }
 
-const light = new THREE.PointLight( 0xffffff, 400 );
+const light = new THREE.PointLight( 0xffffff, 100 );
 light.position.set(-3.5,-6,2);
 scene.add( light );
 const light2 = new THREE.PointLight( 0x1E22AA, 400 );
-light2.position.set(0,-10,2);
+light2.position.set(-1.5,-7,2);
 scene.add( light2 );
 const light3 = new THREE.PointLight( 0x1E22AA, 400 );
-light3.position.set(0,-20,2);
+light3.position.set(-1,-9,2);
 scene.add( light3 );
-const light4 = new THREE.PointLight( 0x1E22AA, 400 );
-light4.position.set(0,-30,2);
-scene.add( light4 );
-const light5 = new THREE.PointLight( 0x1E22AA, 400 );
-light5.position.set(0,-40,2);
-scene.add( light5 );
-const light6 = new THREE.PointLight( 0x1E22AA, 400 );
-light6.position.set(0,-50,2);
-scene.add( light6 );
-const light7 = new THREE.PointLight( 0x1E22AA, 400 );
-light7.position.set(0,-60,2);
-scene.add( light7 );
 
 const b_geometry = new THREE.PlaneGeometry( 6.5, 4);  
 const b_material = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load( '/img/rabbit2.svg'), transparent: true,  });
@@ -159,30 +147,40 @@ cloud12.position.x=-5;
 scene.add( cloud12 );
 
 camera.position.z = 5;
+// tx=camera.position.y/-7
+// (1-tx)*(-3.5) //x
+// (1-t)*(-5.9)-(t)*(-64.50) //y
+// (1-tx)*1+tx*(1.44) //scale
+// camera.position.y=-window.scrollY/100;
+// if (camera.position.y<=-4) {
+//     if (camera.position.y>-7) {
+//         bunny.position.x=-camera.position.y-3.5*2;
+//         bunny.scale.setScalar(-camera.position.y/4.5);
+//     }else{
+//         bunny.position.x=-7-3.5*2;
+//         bunny.scale.setScalar(-7/4.5);
+//     }
+//     bunny.position.y=camera.position.y-2;
+// }
+// if (camera.position.y<=-4) {
+//     if (camera.position.y>=-7) {
+//         bunny.position.x=-camera.position.y-4-3.5;
+//         bunny.position.y=camera.position.y-4-5.9;
+//         //bunny.scale.setScalar(-camera.position.y/4.5);
+//     }
+    
+// }
 
-camera.position.y=-window.scrollY/100;
-if (camera.position.y<=-4) {
-    if (camera.position.y>-7) {
-        bunny.position.x=-camera.position.y-3.5*2;
-        bunny.scale.setScalar(-camera.position.y/4.5);
-    }else{
-        bunny.position.x=-7-3.5*2;
-        bunny.scale.setScalar(-7/4.5);
-    }
-    bunny.position.y=camera.position.y-2;
-}
-document.addEventListener('scroll',()=>{
-    camera.position.y=-window.scrollY/100;
-    console.log(camera.position);
-    if (camera.position.y<-4) {
-        if (camera.position.y>-7) {
-            bunny.position.x=-camera.position.y-3.5*2;
-            bunny.scale.setScalar(-camera.position.y/4.5);
-        }
-        bunny.position.y=camera.position.y-1;
-    }
-    camera.position.y<-64.40?bunny.visible=false:bunny.visible=true;
-})
+// document.addEventListener('scroll',()=>{
+//     if (camera.position.y<-4) {
+//         if (camera.position.y>-7) {
+//             bunny.position.x=-camera.position.y-4-3.5;
+//             bunny.position.y=camera.position.y;
+//             //bunny.scale.setScalar(-camera.position.y/4.5);
+//         }
+        
+//     }
+// })
 
 
 window.addEventListener('resize', () => {
@@ -202,10 +200,14 @@ window.addEventListener('resize', () => {
 
 function animate() {
 	requestAnimationFrame( animate );
-
-	//cube.rotation.x += 0.01;
-	//cube.rotation.y += 0.01;
-
+    camera.position.y=-window.scrollY/100;
+    let t=(-camera.position.y-4)/6;
+    if (t<0)t=0;
+    if (t>1)t=1;
+    bunny.scale.setScalar((1-t)+t*1.5);
+    bunny.position.y=(1-t)*(-5.9)+t*-9;
+    bunny.position.x=(1-t)*(-3.5);
+    console.log(bunny.position);
 	renderer.render( scene, camera );
 }
 
