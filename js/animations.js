@@ -36,7 +36,7 @@ const light = new THREE.PointLight( 0xffffff, 80 );
 light.position.set(-4.9,-5.9,2);
 scene.add( light );
 const light3 = new THREE.PointLight( 0x1E22AA, 500 );
-light3.position.set(-2,-6.5,2);
+light3.position.set(-1,-6.9,2);
 scene.add( light3 );
 
 const b_geometry = new THREE.PlaneGeometry( 6.5, 4);  
@@ -205,6 +205,7 @@ function animate() {
     bunny.scale.setScalar((1-t)+t*1.5);
     bunny.position.y=(1-t)*(-5.9)+t*-5.92;
     bunny.position.x=(1-t)*(-4.4);
+    light.intensity=(1-t)*(200)+t*10;
 	renderer.render( scene, camera );
 }
 
