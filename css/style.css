@@ -10,6 +10,10 @@
   font-family: "ProximaNova Light";
   src: url("fonts/ProximaNova-Light.otf");
 }
+@font-face {
+  font-family: "ProximaNova Black";
+  src: url("fonts/FontsFree-Net-Proxima-Nova-Black.otf");
+}
 
 ::-webkit-scrollbar {
   display: none;
@@ -2743,7 +2747,7 @@ line-height: 1.5em;
   -webkit-text-fill-color: transparent;
 
   text-align: center;
-  font-family: ProximaNova Bold;
+  font-family: "ProximaNova Black";
   font-size: 60px;
   font-style: normal;
   font-weight: 900;
