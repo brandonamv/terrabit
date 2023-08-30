@@ -2732,7 +2732,7 @@ line-height: 1.5em;
 
 .heading.heading-large {
   color: #1b1b1b;
-  font-family: "ProximaNova ExtraBold";
+  font-family: "ProximaNova Black";
   font-size: clamp(7vw, 5vw, 7.5vw);
   font-style: normal;
   font-weight: 900;
@@ -13085,7 +13085,7 @@ line-height: 1.5em;
     grid-row-gap: 0px;
     color: #fff;
     background-color: transparent;
-    border: 1px solid #fff;
+    border: 1px solid #427BD1;
     border-radius: 50%;
     flex-direction: column;
     flex: none;

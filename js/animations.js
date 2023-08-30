@@ -32,9 +32,12 @@ function ScreenToSpaceY(n) {
     return - ( n - heightHalf ) / heightHalf;
 }
 
-const light = new THREE.PointLight( 0xffffff, 80 );
+const light = new THREE.PointLight( 0xffffff, 100 );
 light.position.set(-4.9,-5.9,2);
 scene.add( light );
+const light2 = new THREE.PointLight( 0xffffff,  40 );
+light2.position.set(0.5,1.5,2);
+scene.add( light2 );
 const light3 = new THREE.PointLight( 0x1E22AA, 500 );
 light3.position.set(-1,-6.9,2);
 scene.add( light3 );
@@ -48,7 +51,7 @@ bunny.visible=true;
 scene.add( bunny );
 
 const geometry = new THREE.PlaneGeometry( 5, 3);  
-const material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load( '/img/cloud.png'), transparent: true,  });
+const material = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load( '/img/cloud.png'), transparent: true,  });
 const cloud = new THREE.Mesh( geometry, material );
 cloud.castShadow=true;
 cloud.position.y=1.5;
@@ -56,7 +59,7 @@ cloud.position.x=0.5;
 scene.add( cloud );
 
 const geometry2 = new THREE.PlaneGeometry( 5, 3);  
-const material2 = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load( '/img/cloud2.png'), transparent: true,  });
+const material2 = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load( '/img/cloud2.png'), transparent: true  });
 const cloud2 = new THREE.Mesh( geometry2, material2 );
 cloud2.castShadow=true;
 cloud2.position.y=-4;
