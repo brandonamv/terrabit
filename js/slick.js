@@ -6,7 +6,7 @@ $(document).ready(function(){
     autoplay: true,
     autoplaySpeed: 2000,
     dots:false,
-    centerMode: true,
+    centerMode: false,
     responsive: [{
       breakpoint: 1024,
       settings: {
