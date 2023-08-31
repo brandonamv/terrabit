@@ -13257,3 +13257,19 @@ line-height: 1.5em;
   border: 2px solid #16197f;
   animation: sonar 800ms ease-out infinite;
 }
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: rotateX(100deg);
+		transform-origin: bottom;
+	}
+
+	100% {
+		opacity: 1;
+		transform: rotateX(0);
+		transform-origin: bottom;
+	}
+}
+.hero-h1{
+	animation: myAnim 1s cubic-bezier(0.32, 0, 0.67, 0) 0s 1 normal forwards;
+}
