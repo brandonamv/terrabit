@@ -45,7 +45,7 @@ scene.add( light3 );
 const b_geometry = new THREE.PlaneGeometry( 6.5, 4);  
 const b_material = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load( '/img/rabbit2.svg'), transparent: true,  });
 const bunny = new THREE.Mesh( b_geometry, b_material );
-bunny.position.y=ScreenToSpaceY(height*3);
+bunny.position.y=ScreenToSpaceY(height*2.8);
 bunny.position.x=-4.4;
 bunny.visible=true;
 scene.add( bunny );
@@ -206,7 +206,7 @@ function animate() {
     if (t<0)t=0;
     if (t>1)t=1;
     bunny.scale.setScalar((1-t)+t*1.5);
-    bunny.position.y=(1-t)*(ScreenToSpaceY(height*2.8))+t*-5.92;
+    //bunny.position.y=(1-t)*(ScreenToSpaceY(height*2.8))+t*-5.92;
     bunny.position.x=(1-t)*(-4.4);
     light.intensity=(1-t)*(200)+t*10;
 	renderer.render( scene, camera );
