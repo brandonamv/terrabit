@@ -45,7 +45,7 @@ scene.add( light3 );
 const b_geometry = new THREE.PlaneGeometry( 6.5, 4);  
 const b_material = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load( '/img/rabbit2.svg'), transparent: true,  });
 const bunny = new THREE.Mesh( b_geometry, b_material );
-bunny.position.y=ScreenToSpaceY(height*3);
+bunny.position.y=ScreenToSpaceY(height*2.8);
 bunny.position.x=-4.4;
 bunny.visible=true;
 scene.add( bunny );
