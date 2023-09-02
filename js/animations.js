@@ -47,7 +47,7 @@ const b_material = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader
 const bunny = new THREE.Mesh( b_geometry, b_material );
 bunny.position.y=ScreenToSpaceY(height*2.8);
 bunny.position.x=-4.4;
-bunny.visible=true;
+window.location.href.split('/')[3].length>0&&window.location.href.split('/')[3]!="index.html"?bunny.visible=false:bunny.visible=true;
 scene.add( bunny );
 
 const geometry = new THREE.PlaneGeometry( 5, 3);  
