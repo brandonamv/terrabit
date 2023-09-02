@@ -206,7 +206,7 @@ function animate() {
     if (t<0)t=0;
     if (t>1)t=1;
     bunny.scale.setScalar((1-t)+t*1.5);
-    bunny.position.y=(1-t)*(ScreenToSpaceY(height*2.8))+t*-5.92;
+    //bunny.position.y=(1-t)*(ScreenToSpaceY(height*2.8))+t*-5.92;
     bunny.position.x=(1-t)*(-4.4);
     light.intensity=(1-t)*(200)+t*10;
 	renderer.render( scene, camera );
