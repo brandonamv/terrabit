@@ -3,7 +3,6 @@ import * as THREE from 'three';
 const elem = document.getElementById('banner');
 const elemHeight = elem.getBoundingClientRect().height;
 
-console.log(elemHeight);
 const secondElem = document.getElementById('fondo');
 secondElem.style.height = elemHeight+'px';
 
@@ -45,8 +44,9 @@ scene.add( light3 );
 const b_geometry = new THREE.PlaneGeometry( 6.5, 4);  
 const b_material = new THREE.MeshStandardMaterial({ map: new THREE.TextureLoader().load( '/img/rabbit2.svg'), transparent: true,  });
 const bunny = new THREE.Mesh( b_geometry, b_material );
-bunny.position.y=ScreenToSpaceY(height*2.8);
-bunny.position.x=-4.4;
+bunny.position.y=ScreenToSpaceY(elemHeight*2);
+bunny.position.x=-3.5;
+bunny.scale.setScalar(.85);
 window.location.href.split('/')[3].length>0&&window.location.href.split('/')[3]!="index.html"?bunny.visible=false:bunny.visible=true;
 scene.add( bunny );
 
@@ -205,9 +205,9 @@ function animate() {
     let t=(-camera.position.y-4)/4;
     if (t<0)t=0;
     if (t>1)t=1;
-    bunny.scale.setScalar((1-t)+t*1.5);
+    bunny.scale.setScalar((1-t)*0.85+t*1.5);
     //bunny.position.y=(1-t)*(ScreenToSpaceY(height*2.8))+t*-5.92;
-    bunny.position.x=(1-t)*(-4.4);
+    bunny.position.x=(1-t)*(-3.5);
     light.intensity=(1-t)*(200)+t*10;
 	renderer.render( scene, camera );
 }
