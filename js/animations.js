@@ -2,9 +2,13 @@ import * as THREE from 'three';
 
 const elem = document.getElementById('banner');
 const elemHeight = elem.getBoundingClientRect().height;
+console.log(elem.getBoundingClientRect());
 
 const secondElem = document.getElementById('fondo');
 secondElem.style.height = elemHeight+'px';
+
+const thirdElem = document.getElementById('fin-bunny');
+const bunnyFin=thirdElem.getBoundingClientRect().top;
 
 const scene = new THREE.Scene(new THREE.AmbientLight( 0x111122, 3 ) );
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -12,7 +16,6 @@ const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.inner
 let width=window.innerWidth;
 let height=window.innerHeight;
 let widthHalf = width / 2, heightHalf = height / 2;
-
 const renderer = new THREE.WebGLRenderer( { antialias: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( width, height );
@@ -206,7 +209,7 @@ function animate() {
     if (t<0)t=0;
     if (t>1)t=1;
     bunny.scale.setScalar((1-t)*0.85+t*1.5);
-    //bunny.position.y=(1-t)*(ScreenToSpaceY(height*2.8))+t*-5.92;
+    bunny.position.y=(1-t)*(ScreenToSpaceY(elemHeight*2))+t*(ScreenToSpaceY(bunnyFin*2));
     bunny.position.x=(1-t)*(-3.5);
     light.intensity=(1-t)*(200)+t*10;
 	renderer.render( scene, camera );

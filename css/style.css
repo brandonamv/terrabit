@@ -280,9 +280,9 @@ html {
 body {
   min-height: 100%;
   color: #333;
-  background-color: #fff;
+  background-color: #F4F4F4 !important;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Arial, sans-serif";
   font-size: 14px;
   line-height: 20px;
 }
@@ -2686,9 +2686,6 @@ figcaption {
   display: flex;
   color: #000;
   width: 100%;
-  justify-content: space-around;
-  align-content: center;
-  row-gap: 5%;
 }
 
 .flex-container6{
@@ -2703,7 +2700,7 @@ figcaption {
 
 .flex-container5 div{
   display: flex;
-  width: 100%;
+  width: 25%;
   height: 100%;
   justify-content: space-around;
   align-items: center;
@@ -2714,7 +2711,7 @@ figcaption {
   display: flex;
   width: 100%;
   height: 100%;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: end;
 
   color: rgba(0, 0, 0, 0.60);
@@ -2738,11 +2735,12 @@ figcaption {
 
 .heading {
   color: #000;
-  font-family: Inter;
-  font-size: 21px;
+  text-align: center;
+  font-family: "ProximaNova Black";
+  font-size: 35px;
   font-style: normal;
-  font-weight: 500;
-  line-height: 32px;
+  font-weight: 800;
+  line-height: 33px;
 }
 
 .heading.heading-large {
@@ -2906,7 +2904,7 @@ figcaption {
   background-color: transparent;
   display: flex;
   align-items: center;
-  height: 70vh;
+  height: 55vh;
   gap:5px;
 }
 
@@ -3234,7 +3232,7 @@ figcaption {
 
 .footer-info-item-header {
   color: rgba(255, 255, 255, 0.50);
-  font-family: 'ProximaNova Light';
+  font-family: ProximaNova Light;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -3864,7 +3862,7 @@ figcaption {
 
 .quote-div{
   display: flex;
-  gap: 1rem;
+  gap: 2.5rem;
 }
 
 .quote.quote-accent-lighter {
@@ -3922,7 +3920,7 @@ figcaption {
 
 .quote-mark {
   width: 3rem;
-  height: 2rem;
+  height: 3rem;
 }
 
 .quote-image-wrapper {
@@ -3991,10 +3989,12 @@ figcaption {
 }
 
 .information-text {
-  color: #1b1b1b;
-  letter-spacing: -.03em;
-  font-size: 1.125rem;
-  line-height: 1.5em;
+  color: #141B4D;
+  font-family: "ProximaNova Bold";
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 37px;
 }
 
 .information-text.information-text-accent {
@@ -4002,10 +4002,12 @@ figcaption {
 }
 
 .information-text.information-text-light {
-  color: #828282;
-  font-size: .875rem;
-  font-weight: 500;
-  line-height: 1.8em;
+  color: rgba(0, 0, 0, 0.53);
+  font-family: "ProximaNova Light";
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 31px;
 }
 
 .get-in-touch {
@@ -4048,7 +4050,10 @@ figcaption {
   align-items: center;
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding-left: 70px;
+  padding-right: 70px;
+  margin-top: -10%;
 }
 
 .get-in-touch-content.get-in-touch-content-v3 {
@@ -4173,11 +4178,8 @@ figcaption {
   line-height: 60px;
 }
 .quote-information {
-  z-index: 2;
-  max-width:100%;
-  position: relative;
-  bottom: 0;
-  /* transform: translate(0, 50%); */
+  display: flex;
+  gap: 1rem;
 }
 
 .reviews {
@@ -11585,9 +11587,9 @@ figcaption {
 }
 
 .nojombre2 {
-  bottom: -10%;
+  bottom: 0;
   width: 100%;
-  left: -15%;
+  left: 0;
 }
 @media screen and (max-width: 767px) {
   .nojoda {
@@ -13232,6 +13234,16 @@ figcaption {
 }
 .background-hero.bg9 {
   background: url(../img/bgjumpstart-experience.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.background-hero.bgabout {
+  background: url(../img/bgabout.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.background-hero.bgcontact {
+  background: url(../img/bgcontact.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
