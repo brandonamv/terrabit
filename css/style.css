@@ -13377,3 +13377,13 @@ figcaption {
   display: flex;
   flex-direction: row-reverse;
 }
+
+.slick-arrow{
+	z-index: 1;
+}
+.slick-prev{
+	left: 1%;
+}
+.slick-next {
+    right: 1%;
+}

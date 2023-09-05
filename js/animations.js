@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-
+const clock = new THREE.Clock();
 const elem = document.getElementById('banner');
 const elemHeight = elem.getBoundingClientRect().height;
 console.log(elem.getBoundingClientRect());
@@ -201,15 +201,20 @@ window.addEventListener('resize', () => {
     
 
 });
-
+const ini=ScreenToSpaceY(elemHeight*2);
+const fin=(ScreenToSpaceY(bunnyFin*2))*1.2;
 function animate() {
+	const delta = clock.getDelta();
+	cloud.position.x+=delta/10;
+	cloud.scale.addScalar(delta/50);
+	console.log(clock.getElapsedTime());
 	requestAnimationFrame( animate );
     camera.position.y=-window.scrollY/100;
-    let t=(-camera.position.y-4)/4;
+    let t=-(camera.position.y+4)/4;
     if (t<0)t=0;
     if (t>1)t=1;
     bunny.scale.setScalar((1-t)*0.85+t*1.5);
-    bunny.position.y=(1-t)*(ScreenToSpaceY(elemHeight*2))+t*(ScreenToSpaceY(bunnyFin*2));
+    bunny.position.y=(1-t)*ini+t*fin;
     bunny.position.x=(1-t)*(-3.5);
     light.intensity=(1-t)*(200)+t*10;
 	renderer.render( scene, camera );
